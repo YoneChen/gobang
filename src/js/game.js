@@ -106,12 +106,12 @@ class Player {
     getStep() { // 获取前一步棋子下的位置
         const step = this.steps.pop();
         if (step) this.redolist.push(step);
-        return step || {x:-1,y:-1};
+        return step || false;
     }
     redoStep() {
         const redoStep = this.redolist.pop();
         if (redoStep) this.steps.push(redoStep);
-        return redoStep || {x:-1,y:-1};
+        return redoStep || false;
     }
     clearRedo() {
         this.redolist = []; // 指向空数组，让js垃圾回收
