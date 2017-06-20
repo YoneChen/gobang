@@ -60,6 +60,13 @@ class Game {
         this.chessBoard.setValue(robotStep,this.robot.role);
         this.chessBoard.setValue(playerStep,this.player.role);
     }
+    getStep() {
+        if (this.turn === this.playerChess) {
+            return this.player.getStep();
+        } else if (this.turn === this.robotChess) {
+            return this.robot.getStep();
+        }
+    }
     // 轮到下一棋手
     Turn() {
         this.turn = this.turn %2 +1;

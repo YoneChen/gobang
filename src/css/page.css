@@ -2,12 +2,16 @@
     margin: 0;
     padding: 0;
 }
+html,body {
+    height: 100%;
+}
 :root {
     --blue:#00aadd;
 }
 .game-container {
     display: flex;
     flex-direction: row-reverse;
+    height: 100%;
     font-size: 14px;
     color: #fff;
 }
@@ -44,6 +48,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    background: #c1af9b;
 }
 .game-mask {
     position: fixed;

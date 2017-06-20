@@ -118,7 +118,7 @@ class Page {
         ctx.save();
         this.position(offest);
         Chessboard.draw(this.ctx,size,distance); //画棋盘
-        Chess.drawAll(this.ctx,this.game.chessBoard,radius,distance); //画棋
+        Chess.draw(this.ctx,this.game.chessBoard,radius,distance); //画棋
         ctx.restore();
     }
     // 清空画布
@@ -179,18 +179,13 @@ const Chessboard = {
 }
 // 棋子
 const Chess = {
-    // 根据矩阵画出所有棋子 用于悔棋
-    drawAll(ctx,chessBoard,r,d) {
+    // 根据矩阵画出棋子
+    draw(ctx,chessBoard,r,d) {
         chessBoard.matrix.forEach((v,i) => {
             if (v === 0) return;
             const vec2 = chessBoard.index2vector(i);
             this.chess(ctx,this.vector2Pos(vec2,d),v,r);
         });
-    },
-    // 根据矩阵索引画出棋子，用于双方下棋
-    draw(ctx,pos,v,r) {
-        if (v === 0) return;
-        this.chess(ctx,pos,v,r);
     },
     chess(ctx,{x,y},v,r=6) {
         ctx.save();
