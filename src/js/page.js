@@ -16,15 +16,14 @@ class Page {
     }
     // 初始化UI以及画布
     initGameDom(domContainer) {
-        const {size,distance,radius,offest} = this.option;
+        const {size,distance,radius} = this.option;
         this.canvas = document.createElement('canvas');
         this.canvas.width = (size-1) *distance + 2*radius;
         this.canvas.height = this.canvas.width;
         this.dom_menu = document.querySelector('.game-menu');
         domContainer.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
-        this.position(offest);
-        Chessboard.draw(this.ctx,size,distance); //画棋盘
+        this.replay();
     }
     // 事件绑定
     bindEvent() {
@@ -36,15 +35,14 @@ class Page {
             // 事件委托给按钮们
             const dom = e.target;
             switch(dom.id) {
-                case 'start': this.clickStart(e.target);break; // 点击开始一局
+                case 'start': this.clickStart();break; // 点击开始一局
                 case 'undo': this.clickUndo();break; // 点击悔棋
                 case 'redo': this.clickRedo();break; // 点击撤销悔棋
             }
         });
     }
     // 点击开始
-    clickStart(startBtn) {
-        startBtn.innerText = '重新开始';
+    clickStart() {
         Array.from(this.dom_menu.querySelectorAll('#chooseChess>.radio')).forEach(dom => {
             if(dom.checked) {
                 this.option.playerChess = +dom.value;
