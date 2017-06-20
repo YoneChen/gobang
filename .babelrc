@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": {
+        "modules": false
+      }
+    }]
+  ],
+  
+  "plugins":["transform-runtime","syntax-async-functions","transform-regenerator","syntax-dynamic-import"]
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>五子棋</title>
+</head>
+<body>
+    <section class="game-container">
+        <nav class="game-menu">
+            <div class="game-choose" id="chooseChess">
+                <input class="radio" name="playerchess" type="radio" checked value="1"><label>我先</label>
+                <input class="radio" name="playerchess" type="radio" value="2"><label>机器先</label>
+            </div>
+            <div class="game-choose" id="chooseSize">
+                <input class="radio" name="size" type="radio" value="14"><label>小</label>
+                <input class="radio" name="size" type="radio" checked value="18"><label>中</label>
+                <input class="radio" name="size" type="radio" value="22"><label>大</label>
+            </div>
+            <div class="game-btn" id ="start">点我开始</div>
+            <div class="game-btn" id="undo">悔棋</div>
+            <div class="game-btn" id="redo">撤销悔棋</div>
+        </nav>
+        <article class="game-view"></article>
+    </section>
+</body>
+</html>
