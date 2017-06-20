@@ -3,7 +3,7 @@ import Game from './game.js';
 class Page {
     constructor(domContainer,option) {
         const defaultOption = {
-            size:15,
+            size:18,
             playerChess:1,
             distance:30,
             radius:10
@@ -16,13 +16,15 @@ class Page {
     }
     // 初始化UI以及画布
     initGameDom(domContainer) {
-        const {size,distance,radius} = this.option;
+        const {size,distance,radius,offest} = this.option;
         this.canvas = document.createElement('canvas');
         this.canvas.width = (size-1) *distance + 2*radius;
         this.canvas.height = this.canvas.width;
         this.dom_menu = document.querySelector('.game-menu');
         domContainer.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
+        this.position(offest);
+        Chessboard.draw(this.ctx,size,distance); //画棋盘
     }
     // 事件绑定
     bindEvent() {
@@ -81,13 +83,11 @@ class Page {
         winner => { // 赛局结束，展示结果
             this.disableChess();
             if (winner ===this.game.playerChess) {
-                Dialog.show('你赢啦，AI表示不服');
-                document.getElementById('start').innerText = '朕知道了';
+                Dialog.show('你赢啦，AI表示不服','朕知道了');
             } else {
                 setTimeout(() => {
                     this.update();
-                    Dialog.show('你输啦，别不服气');
-                    document.getElementById('start').innerText = '你开心就好';
+                    Dialog.show('你输啦，别不服气','你开心就好');
                 },1000);
             }
         });
@@ -118,7 +118,7 @@ class Page {
         const ctx = this.ctx;
         ctx.save();
         this.position(offest);
-        Chessboard.draw(this.ctx,size,distance,120,120); //画棋盘
+        Chessboard.draw(this.ctx,size,distance); //画棋盘
         Chess.drawAll(this.ctx,this.game.chessBoard,radius,distance); //画棋
         ctx.restore();
     }
