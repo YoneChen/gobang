@@ -24,7 +24,7 @@ class Page {
         this.dom_menu = document.querySelector('.game-menu');
         domContainer.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
-        this.replay();
+        Dialog.show('欢迎来到和我下五子棋','开始游戏',() => this.replay());
     }
     // 事件绑定
     bindEvent() {
@@ -224,7 +224,7 @@ const Chess = {
 }
 // 弹窗组件
 const Dialog = {
-    show(text="游戏结束",buttonText="我知道啦",callback =() =>{this.close()}) {
+    show(text="游戏结束",buttonText="我知道啦",callback =() =>{}) {
         
         let dom = document.querySelector(".game-mask");
         if (!dom) { // 若第一次则创建
@@ -252,7 +252,10 @@ const Dialog = {
         this.bindEvent(callback);
     },
     bindEvent(callback) {
-        this.dialog.querySelector('.game-confirm').addEventListener('click',callback);
+        this.dialog.querySelector('.game-confirm').addEventListener('click',e => {
+            callback();
+            this.close();
+        });
     },
     close() { // 隐藏弹窗
         this.dialog.classList.add('hide');
