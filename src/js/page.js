@@ -20,6 +20,7 @@ class Page {
         this.canvas = document.createElement('canvas');
         this.canvas.width = (size-1) *distance + 2*radius;
         this.canvas.height = this.canvas.width;
+        document.querySelector('meta[name="viewport"]').setAttribute('content',`width=${ this.canvas.width}`);        
         this.dom_menu = document.querySelector('.game-menu');
         domContainer.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
@@ -43,12 +44,12 @@ class Page {
     }
     // 点击开始
     clickStart() {
-        Array.from(this.dom_menu.querySelectorAll('#chooseChess>.radio')).forEach(dom => {
+        Array.from(this.dom_menu.querySelectorAll('#chooseChess .radio')).forEach(dom => {
             if(dom.checked) {
                 this.option.playerChess = +dom.value;
             }
         });
-        Array.from(this.dom_menu.querySelectorAll('#chooseSize>.radio')).forEach(dom => {
+        Array.from(this.dom_menu.querySelectorAll('#chooseSize .radio')).forEach(dom => {
             if(dom.checked) {
                 this.option.size = +dom.value;
             }

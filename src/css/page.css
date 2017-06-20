@@ -15,16 +15,19 @@
     background-color: #444;
 }
 .game-choose {
-    height: 40px;
-    padding: 0 16px;
+    display: flex;
+    padding: 6px 16px;
     line-height: 40px;
 }
+.game-control {
+    display: inline-flex;
+    align-items: center;
+}
 .radio {
-    margin-right: 10px;
+    margin: 0 10px;
 }
 .game-btn {
-    width: 150px;
-    height: 40px;
+    padding: 6px 16px;
     border-style: solid;
     border-width: 1px 0 0 2px;
     border-color: #333 transparent transparent var(--blue);
@@ -71,4 +74,15 @@
     margin: 0 auto;
     border: 1.5px solid #fff;
     line-height: 40px;
+}
+@media screen and (width <= 640px) {
+    .game-container {
+        flex-direction: column;
+    }
+    .game-menu {
+        display: flex;
+    }
+    #chooseSize {
+        display: none;
+    }
 }

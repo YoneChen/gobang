@@ -10,13 +10,23 @@
     <section class="game-container">
         <nav class="game-menu">
             <div class="game-choose" id="chooseChess">
-                <input class="radio" name="playerchess" type="radio" checked value="1"><label>我先</label>
-                <input class="radio" name="playerchess" type="radio" value="2"><label>机器先</label>
+                <div class="game-control">
+                    <input class="radio" name="playerchess" type="radio" checked value="1"><label class="label">我先</label>
+                </div>
+                <div class="game-control">
+                    <input class="radio" name="playerchess" type="radio" value="2"><label class="label">机器先</label>
+                </div>
             </div>
             <div class="game-choose" id="chooseSize">
-                <input class="radio" name="size" type="radio" value="14"><label>小</label>
-                <input class="radio" name="size" type="radio" checked value="18"><label>中</label>
-                <input class="radio" name="size" type="radio" value="22"><label>大</label>
+                <div class="game-control">
+                    <input class="radio" name="size" type="radio" value="14"><label class="label">小</label>
+                </div>
+                <div class="game-control">
+                    <input class="radio" name="size" type="radio" checked value="18"><label class="label">中</label>
+                </div>
+                <div class="game-control">
+                    <input class="radio" name="size" type="radio" value="22"><label class="label">大</label>
+                </div>
             </div>
             <div class="game-btn" id ="start">重新开始</div>
             <div class="game-btn" id="undo">悔棋</div>
